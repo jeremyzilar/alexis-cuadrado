@@ -7,16 +7,10 @@ ini_set( 'max_execution_time', '300' );
 include_once 'functions/wp_enqueue_script.php';
 include_once 'functions/loop.php';
 include_once 'functions/images.php';
-include_once 'functions/publications-taxonomy.php';
 include_once 'functions/article-composer.php';
 include_once 'functions/card-composer.php';
 include_once 'functions/entry.php';
-include_once 'functions/collections.php';
-include_once 'functions/collection-composer.php';
-include_once 'functions/bookmarks.php';
-include_once 'functions/bookmark-composer.php';
-include_once 'functions/jsonapi.php';
-
+include_once 'functions/shows.php';
 
 
 // Variables
@@ -53,14 +47,16 @@ define('HOMEURL', $home_url);
 
 // Hide WP Admin Bar
 add_filter('show_admin_bar', '__return_false');
+
+// infinite-scroll
 add_theme_support( 'infinite-scroll', array(
   'type'           => 'click',
   'container'      => 'stream-box',
   'render'         => 'stream_loop'
 ) );
 
+// Post Thumbs / Featured Image
 add_theme_support( 'post-thumbnails' );
-
 
 // Multiple POst Thumbnails
 // See — https://github.com/voceconnect/multi-post-thumbnails/wiki
@@ -76,15 +72,11 @@ if (class_exists('MultiPostThumbnails')) {
 
 
 // Register a Menu
-function supchina_register_menu() {
-  register_nav_menu('app-menu',__( 'App Menu' ));
-  register_nav_menu('list-maker',__( 'List Maker' ));
+function ac_register_menu() {
   register_nav_menu('site-nav',__( 'Site Nav' ));
-  register_nav_menu('stream-nav',__( 'Stream Nav' ));
   register_nav_menu('footer-nav',__( 'Footer Nav' ));
 }
-add_action( 'init', 'supchina_register_menu' );
-
+add_action( 'init', 'ac_register_menu' );
 
 
 

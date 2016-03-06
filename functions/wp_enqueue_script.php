@@ -1,8 +1,6 @@
 <?php
 
-
-function supchina_scripts() {
-
+function ac_scripts() {
   if (WP_ENV === 'development') {
     $assets = array(
       'css'       => '/assets/css/main.css',
@@ -20,7 +18,7 @@ function supchina_scripts() {
       'jquery' => '/assets/js/jquery.min.js' // For working locally without wifi
     );
   }
-  wp_enqueue_style('supchina_css', get_template_directory_uri() . $assets['css'], false, null);
+  wp_enqueue_style('ac_css', get_template_directory_uri() . $assets['css'], false, null);
 
   /**
    * jQuery is loaded using the same method from HTML5 Boilerplate:
@@ -41,20 +39,23 @@ function supchina_scripts() {
   wp_enqueue_script('jquery');
   wp_enqueue_script('sup_js', get_template_directory_uri() . $assets['js'], array(), null, true);
 }
-add_action('wp_enqueue_scripts', 'supchina_scripts', 100);
+add_action('wp_enqueue_scripts', 'ac_scripts', 100);
 
 
+// Admin CSS
 function load_admin_style() {
   $v = date('d');
   wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/assets/css/admin.css', false, $v, 'all' );
 }
 add_action( 'admin_enqueue_scripts', 'load_admin_style' );
 
-function supchina_adminjs() {
+
+// Admin JS
+function ac_adminjs() {
   $v = date('d');
   wp_enqueue_script( 'admin-media', get_template_directory_uri() . '/assets/js/admin/media-min.js', array( 'media-editor' ), $v, 'all');
 }
-add_action( 'load-post.php', 'supchina_adminjs' );
-add_action( 'load-post-new.php', 'supchina_adminjs' );
+add_action( 'load-post.php', 'ac_adminjs' );
+add_action( 'load-post-new.php', 'ac_adminjs' );
 
 ?>
