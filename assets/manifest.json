@@ -1,0 +1,14 @@
+{
+  "dest": "assets/manifest.json",
+  "querystring": true,
+  "assets/css/main.min.css": {
+    "path": "assets/css/main.min.css",
+    "hash": "ed90cc9f1dc1bf6937b1e29bfe2f67c6",
+    "handle": "coop_css"
+  },
+  "assets/js/scripts.min.js": {
+    "path": "assets/js/scripts.min.js",
+    "hash": "c85731764e428eb98a95d1ccbde4dd91",
+    "handle": "coop_js"
+  }
+}

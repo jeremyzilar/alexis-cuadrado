@@ -1,0 +1,135 @@
+/*FONTS
+font-family: 'Lato', sans-serif;
+*/
+
+$text-color: #222D49;
+$link-color: #DC4444;
+$red: #DC4444;
+$black: rgba(0,0,0,1);
+$deep-blue: #222D49;
+$deep-red: #B23131;
+$light-blue: #4A90E2;
+$white: rgba(255,255,255,1);
+$green: rgba(43,160,90,1);
+$grey: rgba(60,60,60,.5);
+$light-grey: rgba(60,60,60,1);
+$salmon: rgba(255,146,153,1);
+
+/*Break Points*/
+$break-xs: "screen and (max-width: 767px)";
+$break-sm: "screen and (min-width: 768px)";
+$break-md: "screen and (min-width: 992px)";
+$break-lg: "screen and (min-width: 1200px)";
+
+// Type
+$sans: 'Alegreya Sans', Helvetica, Arial, sans-serif;
+$serif: 'Alegreya', serif;
+
+// Colors
+@mixin alpha-background-color($color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  background-color: $solid-color;
+  background-color: $color;
+}
+
+
+body {
+  padding: 35px;
+  background: #fff;
+  font-family: $serif;
+  font-size: 18px;
+  line-height: 28px;
+  color:$text-color;
+  -webkit-overflow-scrolling: touch;
+}
+
+a {
+  color:$light-blue;
+}
+
+a:hover {
+  text-decoration: underline;
+ color:$light-blue;
+}
+
+hr {
+  margin:48px auto;
+  width: 60%;
+  border-bottom: 1px $text-color solid;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color:$deep-blue;
+  a{
+    color:$deep-blue;
+  }
+  a:hover{
+    color:$deep-blue;
+  }
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 60px;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 48px;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 36px;
+}
+
+h4 {
+  margin-top: 35px;
+  font-weight: 800;
+  font-size: 24px;
+  font-family: $sans;
+}
+
+h5 {
+  margin-top: 25px;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: $sans;
+}
+
+h6 {
+  margin-top: 25px;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: $sans;
+  a {
+    color:$red;
+  }
+  a:hover {
+    color:$red;
+  }
+}
+
+section{
+  padding:70px 0;
+}
+
+.container{}
+
+.page{
+  background: #f7f7f7;
+}
+
+
+.highlight{
+  background: yellow;
+}
+
+
+#main{
+  padding:30px 0 50px 0;
+}
+

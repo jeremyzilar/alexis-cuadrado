@@ -1,0 +1,10 @@
+
+// Bootstrap
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+// // Roots
+@import "_global.scss";              // Base styling & custom mixins
+@import "components/_navs";        // Navbar
+@import "components/_head";     // Header — home
+@import "components/_sharetools";    // Share Tools
+@import "components/_artbox";    // Share Tools

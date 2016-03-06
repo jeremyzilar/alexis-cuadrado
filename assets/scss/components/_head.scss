@@ -1,0 +1,87 @@
+/*Head*/
+
+#head{
+  margin:0;
+
+  // logo
+  h1{
+    margin: 0;
+    margin-left: -2px;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 42px;
+    a{
+      text-decoration: none;
+    }
+  }
+
+  // Newsletter Signup
+
+  #mc_embed_signup{
+    font-family: $sans;
+    #mc-field-group{
+      display: block;
+    }
+    .form-group{
+      margin-bottom: 0;
+    }
+    h5{
+      font-weight: 500;
+      margin-top: 20px;
+      @media #{$break-sm} {
+        margin-top: 25px;
+      }
+    }
+    input,
+    .btn-submit {
+      padding: 4px 6px;
+      border-radius: 0;
+      border:none;
+      border-bottom:2px $deep-blue solid;
+      color:$deep-blue;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 21px;
+      height: 38px;
+      background: rgba(255,255,255,.4);
+    }
+    input.email{
+      width:85%;
+      float: left;
+      @media #{$break-md} {
+        width:85%;
+      }
+
+    }
+    input.email:focus{
+      box-shadow: none;
+    }
+
+    .btn-submit{
+      padding: 0;
+      float: left;
+      font-size: 28px;
+      line-height: 28px;
+      width: 50px;
+      background:none;
+      border-bottom: none;
+    }
+    ::-webkit-input-placeholder {
+     color:$deep-blue;
+    }
+    :-moz-placeholder { /* older Firefox*/
+     color:$deep-blue;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */ 
+     color:$deep-blue;
+    } 
+    :-ms-input-placeholder { 
+     color:$deep-blue;
+    }
+
+  }
+}
+
+#head.head-slim{
+  padding: 20px 0 20px 0;
+}

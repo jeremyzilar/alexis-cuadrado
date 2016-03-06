@@ -1,0 +1,25 @@
+.page{
+  // min-height: 800px;
+}
+
+.ground{
+  margin-bottom: 500px;
+  height:150px;
+  background: #FF5959;
+  mix-blend-mode: darken;
+  // mix-blend-mode: multiply;
+  z-index: 1;
+
+}
+.letterbox-letter {
+  width: 225px;
+  height: 225px;
+  opacity: 1;
+  fill: #f7ff33;
+  fill: #FF9FD5;
+  fill: #F3F3F3;
+  position: fixed;
+  mix-blend-mode: color-burn;
+  z-index: 30;
+}
+

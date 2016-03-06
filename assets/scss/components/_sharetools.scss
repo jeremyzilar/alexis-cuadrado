@@ -1,0 +1,26 @@
+// Share Tools
+
+.sup-share-tools{
+  margin: 0;
+  .btn-share{
+    margin-right: 7px;
+    color: $light-blue;
+    display: inline-block;
+    text-align: center;
+    font-size: 21px;
+    line-height: 21px;
+  }
+  .btn-share:hover{
+    opacity: 0.8;
+    i{
+    }
+  }
+  .btn-share-twitter{
+  }
+  .btn-share-facebook{
+  }
+}
+article .sup-share-tools .btn-share{
+  font-size: 28px;
+  line-height: 28px;
+}
