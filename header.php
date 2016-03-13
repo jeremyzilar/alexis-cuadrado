@@ -19,9 +19,8 @@
 
     <!-- Font: Alegreya — Google Fonts — https://www.google.com/fonts/specimen/Alegreya -->
     <link href='https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700italic,700,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- font-family: 'Alegreya', serif; -->
-    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- font-family: 'Alegreya Sans', sans-serif; -->
+    <!-- Fonts: Lato / http://www.latofonts.com/ -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Open Graph Tags -->
     <?php include INC . 'opengraph.php'; ?>
@@ -37,46 +36,18 @@
   </head>
   
   <body <?php body_class(); ?>>
+    
+    <?php //include(INC . 'artbox.php'); ?>
+    <div id="page">
 
-    <section id="head" class="page">
+    <section id="head">
       <div class="container">
-       <div class="row">
-         <div class="col-xs-12">
-          <h1><a href="">Alexis Cuadrado</a></h1>
-         </div>
-       </div>
-       <div class="row">
-         <div class="col-xs-12">
-          <?php
-            $args = array(
-              'theme_location'  => 'site-nav',
-              'menu_class'      => 'nav',
-              'menu_id'         => '',
-              'container'       => 'div',
-              'container_class' => 'nav-wrap',
-              'container_id'    => 'site-nav',
-              'echo'            => true,
-              'before'          => '',
-              'after'           => '',
-              'link_before'     => '',
-              'link_after'      => '',
-              'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>'
-            );
-            wp_nav_menu( $args );
-          ?>
-         </div>
-       </div>
-
-       <div class="row">
-         <div class="col-xs-12">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         </div>
-       </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h1><a href="">Alexis Cuadrado</a></h1>
+          </div>
+        </div>
+        <?php include(INC . 'stream-nav.php'); ?> 
+       
       </div>
-      <?php //include(INC . 'artbox.php'); ?>
     </section>

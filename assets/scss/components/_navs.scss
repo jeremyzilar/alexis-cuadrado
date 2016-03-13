@@ -15,10 +15,10 @@
     a{
       margin-right: 60px;
       padding: 0;
-      color:$deep-blue;
+      color:$base;
     }
     a:hover{
-      border-bottom: 2px solid $deep-blue;
+      border-bottom: 2px solid $base;
       background: none;
     }
   }
@@ -53,7 +53,6 @@
   a{
     padding: 3px 13px;
     border-radius: 15px;
-    background: $light-blue;
     color:$white;
     @media #{$break-sm} {
       padding: 5px 15px;

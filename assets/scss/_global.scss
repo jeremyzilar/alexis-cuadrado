@@ -2,18 +2,10 @@
 font-family: 'Lato', sans-serif;
 */
 
-$text-color: #222D49;
-$link-color: #DC4444;
-$red: #DC4444;
+$base: #041D2E;
 $black: rgba(0,0,0,1);
-$deep-blue: #222D49;
-$deep-red: #B23131;
-$light-blue: #4A90E2;
 $white: rgba(255,255,255,1);
-$green: rgba(43,160,90,1);
-$grey: rgba(60,60,60,.5);
-$light-grey: rgba(60,60,60,1);
-$salmon: rgba(255,146,153,1);
+
 
 /*Break Points*/
 $break-xs: "screen and (max-width: 767px)";
@@ -22,8 +14,12 @@ $break-md: "screen and (min-width: 992px)";
 $break-lg: "screen and (min-width: 1200px)";
 
 // Type
-$sans: 'Alegreya Sans', Helvetica, Arial, sans-serif;
-$serif: 'Alegreya', serif;
+// $sans: 'Lato', Helvetica, Arial, sans-serif;
+$sans: "aktiv-grotesk", Helvetica, Arial, sans-serif;
+// $serif: 'Alegreya', serif;
+// $serif: "leitura-news", serif;
+// $serif:  "Times New Roman", Times, serif;
+$serif:  'Times New Roman', 'Arial', serif;
 
 // Colors
 @mixin alpha-background-color($color, $background) {
@@ -36,37 +32,38 @@ $serif: 'Alegreya', serif;
 
 
 body {
-  padding: 35px;
+  margin:35px;
+  // padding: 35px;
   background: #fff;
   font-family: $serif;
   font-size: 18px;
   line-height: 28px;
-  color:$text-color;
+  color:$base;
   -webkit-overflow-scrolling: touch;
 }
 
 a {
-  color:$light-blue;
+  color:$base;
 }
 
 a:hover {
   text-decoration: underline;
- color:$light-blue;
+  color:$base;
 }
 
 hr {
   margin:48px auto;
   width: 60%;
-  border-bottom: 1px $text-color solid;
+  border-bottom: 1px $base solid;
 }
 
 h1,h2,h3,h4,h5,h6{
-  color:$deep-blue;
+  color:$base;
   a{
-    color:$deep-blue;
+    color:$base;
   }
   a:hover{
-    color:$deep-blue;
+    color:$base;
   }
 }
 
@@ -105,23 +102,30 @@ h6 {
   font-size: 14px;
   text-transform: uppercase;
   font-family: $sans;
-  a {
-    color:$red;
-  }
-  a:hover {
-    color:$red;
-  }
 }
 
 section{
   padding:70px 0;
 }
 
-.container{}
-
-.page{
-  background: #f7f7f7;
+.container{
+  max-width: 1120px;
 }
+
+#page{
+  // http://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\%28\-45deg\%2C\%20rgba\%28255\%2C249\%2C207\%2C1\%29\%200\%25\%2C\%20rgba\%28247\%2C247\%2C247\%2C1\%29\%2012\%25\%2C\%20rgba\%28247\%2C247\%2C247\%2C1\%29\%20100\%25\%29\%3B\%20/*\%20FF3\.6+\%20*/'
+  background: rgba(255,249,207,1);
+  /* Old Browsers */background: -moz-linear-gradient(-45deg, rgba(255,249,207,1) 0%, rgba(247,247,247,1) 12%, rgba(247,247,247,1) 100%);
+   /* FF3.6+ */background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,249,207,1)), color-stop(12%, rgba(247,247,247,1)), color-stop(100%, rgba(247,247,247,1)));
+  /* Chrome, Safari4+ */background: -webkit-linear-gradient(-45deg, rgba(255,249,207,1) 0%, rgba(247,247,247,1) 12%, rgba(247,247,247,1) 100%);
+   /* Chrome10+,Safari5.1+ */background: -o-linear-gradient(-45deg, rgba(255,249,207,1) 0%, rgba(247,247,247,1) 12%, rgba(247,247,247,1) 100%);
+   /* Opera 11.10+ */background: -ms-linear-gradient(-45deg, rgba(255,249,207,1) 0%, rgba(247,247,247,1) 12%, rgba(247,247,247,1) 100%);
+   /* IE 10+ */background: linear-gradient(135deg, rgba(255,249,207,1) 0%, rgba(247,247,247,1) 12%, rgba(247,247,247,1) 100%);
+  /* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff9cf', endColorstr='#f7f7f7', GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  
+}
+
 
 
 .highlight{
@@ -130,6 +134,6 @@ section{
 
 
 #main{
-  padding:30px 0 50px 0;
+  // padding:30px 0 50px 0;
 }
 

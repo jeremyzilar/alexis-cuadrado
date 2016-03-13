@@ -1,25 +1,27 @@
 <?php
 // These are the additional image sizes that will be cut when adding an image to WP
+add_image_size('w50', 50, 50, true );        // 75 pixels wide x 75 pixels tall
 add_image_size('w75', 75, 75, true );        // 75 pixels wide x 75 pixels tall
 add_image_size('w100', 100, 100, true );        // 75 pixels wide x 75 pixels tall
-add_image_size('w200', 200, 9999, false );    //200 pixels wide (and unlimited height)
-add_image_size('featured', 1280, 9999, true);
+add_image_size('w225', 225, 225, true );    //200 pixels wide (and unlimited height)
+add_image_size('w300', 300, 200, false );    //200 pixels wide (and unlimited height)
+add_image_size('w500', 500, 9999, false );    //200 pixels wide (and unlimited height)
+add_image_size('featured', 920, 9999, true);
 
 // These are the sizes that show up in the Admin
-$supchina_imgsizes = array(
+$ac_imgsizes = array(
   "w75" => __("Thumb (75)"),
   "w100S" => __("Square (100)")
 );
 
 function custom_image_sizes($sizes) {
-  global $supchina_imgsizes;
-  $newimgsizes = array_merge($sizes, $supchina_imgsizes);
+  global $ac_imgsizes;
+  $newimgsizes = array_merge($sizes, $ac_imgsizes);
   return $newimgsizes;
 }
 add_filter('image_size_names_choose', 'custom_image_sizes');
 
 // add_image_size( 'homepage-thumb', 280, 180, true ); //(cropped)
-
 
 
 
@@ -75,9 +77,9 @@ add_filter('img_caption_shortcode', 'new_img_shortcode_filter',10,3);
 
 /******    REWRITE THE GALLERY FUNCTION FROM WORDPRESS   **********/
 
-add_shortcode('gallery', 'supchina_gallery_shortcode');
+add_shortcode('gallery', 'ac_gallery_shortcode');
 
-function supchina_gallery_shortcode($attr) {
+function ac_gallery_shortcode($attr) {
   $counter=0;
 
     $post = get_post();

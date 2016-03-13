@@ -1,23 +1,12 @@
 (function($){
   jQuery(document).ready(function() {
+    $('#album_release_date').datepicker({
+      dateFormat : 'yy-mm-dd'
+    });
 
-    $('#collection-list').height($('#topic-list').height());
-    $('#topic-list, #collection-list').sortable({
-      opacity: 0.6,
-      revert: true,
-      cursor: 'move',
-      connectWith: '.connected_list',
-      stop: function(e, ui) {
-        var index = new Array();
-        $('#collection-list li').each(function() {
-          var id = $(this).attr('data-id');
-          index.push(id);
-        });
-        $('#collection_index').attr('value', index);
-        $('#collection-list').height($('#topic-list').height());
-      }
-    }).disableSelection();
-
+    $('#show_date').datepicker({
+      dateFormat : 'yy-mm-dd'
+    });
 
     $('#refresh_headline').click(function(e) {
       e.preventDefault();

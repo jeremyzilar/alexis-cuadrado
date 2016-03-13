@@ -1,7 +1,154 @@
 <?php 
 
-add_action('init', 'register_mypost_type');
-function register_mypost_type() {
+add_action( 'add_meta_boxes', 'ac_show_builder_add' );
+
+function ac_show_builder_add() {
+  add_meta_box( 'ac_show_builder', 'Show Details', 'ac_show_builder', 'show', 'normal', 'core' );
+}
+
+function ac_show_builder( $post ) {
+  $values = get_post_custom( $post->ID );
+  $show_venue = isset( $values['show_venue'] ) ? esc_attr( $values['show_venue'][0] ) : '';
+  $show_venue_address = isset( $values['show_venue_address'] ) ? esc_attr( $values['show_venue_address'][0] ) : '';
+  $show_venue_url = isset( $values['show_venue_url'] ) ? esc_attr( $values['show_venue_url'][0] ) : '';
+  $show_cost = isset( $values['show_cost'] ) ? esc_attr( $values['show_cost'][0] ) : '';
+  $show_ticket_url = isset( $values['show_ticket_url'] ) ? esc_attr( $values['show_ticket_url'][0] ) : '';
+  $show_date = isset( $values['show_date'] ) ? esc_attr( $values['show_date'][0] ) : '';
+  $show_time = isset( $values['show_time'] ) ? esc_attr( $values['show_time'][0] ) : '';
+  $show_related_id = isset( $values['show_related_id'] ) ? esc_attr( $values['show_related_id'][0] ) : '';
+  $show_related_url = isset( $values['show_related_url'] ) ? esc_attr( $values['show_related_url'][0] ) : '';
+  wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+?>
+
+<?php 
+
+  function ac_categories(){
+    global $post;
+    $ac_categories = get_the_category( $post->ID );
+    return $ac_categories;
+  }
+
+  add_action( 'admin_head', 'get_show_excerpt' );
+  function get_show_excerpt() {
+    global $post;
+    return $post->post_excerpt;
+  }
+
+?>
+
+
+
+<div id="composer_box">
+  
+  <!-- show_date -->
+  <p class="composer_block">
+    <label for="show_date">Show Date</label><br />
+    <input type="text" name="show_date" id="show_date" value="<?php echo $show_date; ?>" />
+  </p>
+
+  <!-- show_time -->
+  <p class="composer_block">
+    <label for="show_time">Time</label><br />
+    <input type="text" name="show_time" id="show_time" value="<?php echo $show_time; ?>" />
+  </p>
+
+  <!-- show_venue -->
+  <p class="composer_block">
+    <label for="show_venue">Venue</label><br />
+    <input type="text" name="show_venue" id="show_venue" value="<?php echo $show_venue; ?>" />
+  </p>
+
+  <!-- show_venue_address -->
+  <p class="composer_block">
+    <label for="show_venue_address">Venue Address</label><br />
+    <textarea type="text" name="show_venue_address" id="show_venue_address"><?php echo $show_venue_address ?></textarea>
+  </p>
+
+  <!-- show_venue_url -->
+  <p class="composer_block">
+    <label for="show_venue_url">Venue URL</label><br />
+    <input type="text" name="show_venue_url" id="show_venue_url" value="<?php echo $show_venue_url; ?>" />
+  </p>
+
+  <!-- show_cost -->
+  <p class="composer_block">
+    <label for="show_cost">Cost</label><br />
+    <input type="text" name="show_cost" id="show_cost" value="<?php echo $show_cost; ?>" />
+  </p>
+
+  <!-- show_ticket_url -->
+  <p class="composer_block">
+    <label for="show_ticket_url">Cost</label><br />
+    <input type="text" name="show_ticket_url" id="show_ticket_url" value="<?php echo $show_ticket_url; ?>" />
+  </p>
+
+</div><!-- #show_builder_box -->
+<?php }
+
+
+add_action( 'save_post', 'ac_show_builder_save' );
+
+function ac_show_builder_save( $post_id ) {
+  // Bail if we're doing an auto save
+  if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+  
+  // if our nonce isn't there, or we can't verify it, bail
+  if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
+  
+  // now we can actually save the data
+  $allowed = array( 
+    'a' => array( // on allow a tags
+      'href' => array() // and those anchords can only have href attribute
+    )
+  );
+  
+  if( isset( $_POST['show_venue'] ) )
+    update_post_meta( $post_id, 'show_venue', wp_kses( $_POST['show_venue'], $allowed ) );
+
+  if( isset( $_POST['show_venue_address'] ) )
+    update_post_meta( $post_id, 'show_venue_address', wp_kses( $_POST['show_venue_address'], $allowed ) );
+
+  if( isset( $_POST['show_venue_url'] ) )
+    update_post_meta( $post_id, 'show_venue_url', wp_kses( $_POST['show_venue_url'], $allowed ) );
+
+  if( isset( $_POST['show_cost'] ) )
+    update_post_meta( $post_id, 'show_cost', wp_kses( $_POST['show_cost'], $allowed ) );
+
+  if( isset( $_POST['show_ticket_url'] ) )
+    update_post_meta( $post_id, 'show_ticket_url', wp_kses( $_POST['show_ticket_url'], $allowed ) );
+
+  if( isset( $_POST['show_date'] ) )
+    update_post_meta( $post_id, 'show_date', wp_kses( $_POST['show_date'], $allowed ) );
+
+  if( isset( $_POST['show_time'] ) )
+    update_post_meta( $post_id, 'show_time', wp_kses( $_POST['show_time'], $allowed ) );
+
+  if( isset( $_POST['show_related_id'] ) )
+    update_post_meta( $post_id, 'show_related_id', wp_kses( $_POST['show_related_id'], $allowed ) );
+
+  if( isset( $_POST['show_related_url'] ) )
+    update_post_meta( $post_id, 'show_related_url', wp_kses( $_POST['show_related_url'], $allowed ) );
+}
+
+
+
+
+// Shows:
+// - Show Name
+// - Show desc
+// - Show image
+// - Venue
+// - Venue Address
+// - Venue URL
+// - Map link
+// - Date
+// - Time
+// - Cost
+// - Ticket URL
+// - Related Blog post
+
+add_action('init', 'register_shows');
+function register_shows() {
   register_post_type('show', array(
     'label'              => 'Shows',
     'labels'             => array(
@@ -30,274 +177,7 @@ function register_mypost_type() {
     'taxonomies'         => array(),
     'slug'               => 'show',
     'hierarchical'       => false,
+    'menu_icon'          => 'dashicons-tickets-alt',
   ));
 
 }
-
-
-
-function file_get_contents_curl($url) {
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.52 Safari/537.17');
-  curl_setopt($ch, CURLOPT_HEADER, 0);
-  curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-  curl_setopt($ch, CURLOPT_HTTPHEADER, 'text/plain;charset=UTF-8');
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-  curl_setopt($ch, CURLOPT_COOKIEJAR, "curl_login_cookie.txt");
-  curl_setopt($ch, CURLOPT_COOKIEFILE, "curl_login_cookie.txt");
-  curl_setopt($ch, CURLOPT_URL, $url);
-  $data = curl_exec($ch);
-  curl_close($ch);
-  return $data;
-}
-
-
-function worthreadingJs(){
-  $bookmarkjs = "javascript:(function(){var desc = '&desc=' + encodeURI(document.getSelection()); if (!desc.length) {desc = ''} var url = '" . get_bloginfo('wpurl') . "/add-bookmark/?url=' + encodeURIComponent(location.href) + desc; window.open(url,'bookmark','left=20,top=20,width=550,height=500,toolbar=0,location=0,resizable=1'); })();";
-  return $bookmarkjs;
-}
-
-
-function worthreadingForm(){
-
-  if(isset($_GET['url'])){
-  
-    $source_url = preg_replace('/\?.*/', '', $_GET['url']) . '?=supchina';
-    $bookmark_data = file_get_contents_curl($source_url);
-
-  } else {
-  
-    $source_url = '';
-    $bookmark_data = file_get_contents_curl($source_url);
-  
-  }
-
-  //parsing begins here:
-  $doc = new DOMDocument();
-  @$doc->loadHTML($bookmark_data);
-
-  //get and display what you need:
-  $nodes = $doc->getElementsByTagName('title');
-  $titletag = $nodes->item(0)->nodeValue;
-
-  $metas = $doc->getElementsByTagName('meta');
-  
-  for ($i = 0; $i < $metas->length; $i++) {
-    $meta = $metas->item($i);
-
-    // bookmark_headline
-    if($meta->getAttribute('property') == 'og:title'){
-      $bookmark_headline = utf8_decode($meta->getAttribute('content'));
-    }
-
-    if (empty($bookmark_headline)) {
-      $bookmark_headline = utf8_decode($titletag);
-    }
-
-    // bookmark_desc
-    if(empty($_GET['desc'])){
-      if($meta->getAttribute('property') == 'og:description'){
-        $bookmark_desc = utf8_decode($meta->getAttribute('content'));
-      }
-      if(($meta->getAttribute('name') == 'description') && empty($bookmark_desc)){
-        $bookmark_desc = utf8_decode($meta->getAttribute('content'));
-      }
-    } else {
-      $bookmark_desc = utf8_decode($_GET['desc']);
-    }
-
-
-
-    // Keywords
-    if($meta->getAttribute('name') == 'keywords'){
-      $bookmark_keywords = $meta->getAttribute('content');
-    }
-
-
-    // Site Name
-    if($meta->getAttribute('name') == 'cre'){ // for NYTimes.com only
-      $nyt_cre = utf8_decode($meta->getAttribute('content'));
-    }
-    if($meta->getAttribute('property') == 'og:site_name'){
-      $bookmark_site_name = utf8_decode($meta->getAttribute('content'));
-    }
-    if (!empty($nyt_cre)) {
-      $bookmark_site_name = $nyt_cre;
-    }
-
-    // Image
-    if($meta->getAttribute('property') == 'og:image'){
-      $bookmark_img = $meta->getAttribute('content');
-    }
-    if (empty($bookmark_img)) {
-      $bookmark_image = '';
-    } else {
-      $bookmark_image = '<img src="' . $bookmark_img . '" alt="' . $bookmark_headline . '" class="thumb">';
-    }
-  }
-
-  ?>
-
-
-  <form id="new_post" name="new_post" method="post" action="" enctype="multipart/form-data">
-    <div class="bookmark-title form-group">
-      <label for="bookmark_title">Headline:</label>
-      <input class="form-control" type="text" id="bookmark_title" tabindex="1" name="title" value="<?php if (strlen($bookmark_headline) > 0 ) { echo $bookmark_headline; } ?>" /> 
-
-      <p><i class="fa fa-link"></i> <?php echo $source_url; ?></p>
-      <input class="form-control" type="hidden" id="source_url" tabindex="2" name="source_url" value="<?php echo $source_url; ?>" />
-      <input class="form-control" type="hidden" id="link_out" tabindex="2" name="link_out" value="on" />
-    </div>
-    
-
-    <div class="bookmark-desc form-group">
-      <label for="bookmark_desc">Summary</label>
-      <textarea class="form-control" type="text" id="bookmark_desc" tabindex="3" name="bookmark_desc" /><?php echo $bookmark_desc; ?></textarea>
-    </div>
-
-    <div class="bookmark-category form-group">
-      <label for="bookmark_category">Category</label>
-      <select name="bookmark_category" class="form-control">
-        <?php
-          $categories = get_categories( );
-          foreach ($categories as $cat) {
-            $cat_name = $cat->name;
-            $cat_slug = $cat->slug;
-            $cat_id = $cat->term_id;
-            echo '<option value="'.$cat_id.'">'.$cat_name.'</option>';
-          }
-        ?>
-      </select>
-    </div>
-
-    <div class="bookmark-img form-group">
-      <label for="bookmark_image">Image</label>
-      <?php echo $bookmark_image; ?>
-      <input class="form-control" type="text" id="bookmark_image" tabindex="6" name="bookmark_image" value="<?php echo $bookmark_img; ?>" />
-      
-    </div>
-
-    <div class="bookmark-pub form-group">
-      <label for="bookmark_publications">Publication</label>
-      <input class="form-control" type="text" id="bookmark_publications" tabindex="4" name="bookmark_publications" value="<?php if (strlen($bookmark_site_name) > 0 ) { echo $bookmark_site_name; } ?>" />
-      <small>e.g. The New York Times</small>
-    </div>
-
-    <div class="bookmark-keywords form-group">
-      <label for="bookmark-keywords">Keywords / Tags</label>
-      <input class="form-control" type="text" id="keywords" tabindex="2" name="keywords" value="<?php //echo $bookmark_keywords; ?>" />
-    </div>
-
-    <script>window.onload=function(){ document.getElementById('link_desc').focus(); }</script>
-    
-    <div id="bookmark-footer">
-      <input type="submit" value="Draft" tabindex="40" id="draft" class="btn btn-default" name="submit" /> 
-      <input type="submit" value="Publish" tabindex="40" id="submit" class="btn btn-primary" name="submit" /> 
-    </div>
-    
-    <input type="hidden" name="action" value="new_post" />
-    <?php wp_nonce_field( 'new_post' ); ?>
-
-  </form>
-
-<?php 
-}
-
-
-
-function worthreadingHeader(){
-  if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post") {
-
-    if (!is_user_logged_in()) {
-      wp_redirect( get_bloginfo( 'url' ) . '/' );
-      exit;
-    }
-
-    if( !current_user_can('publish_posts')) {
-      wp_redirect( get_bloginfo( 'url' ) . '/' );
-      exit;
-    }
-
-    // check that the two compulsory fields are filled
-    if ( strlen($_POST['title']) > 0 && strpos($_POST['source_url'], 'http') !== FALSE ) {
-      if ($_POST['submit'] == 'Draft') {
-        $post_status = 'draft';
-      }
-      if ($_POST['submit'] == 'Publish'){
-        $post_status = 'publish';
-      }
-      // print_r($_POST['keywords']);
-      // die;
-      // create the custom post entry
-      $new_post = array(
-        'post_title'  =>  $_POST['title'],
-        'post_excerpt'=>  $_POST['bookmark_desc'],
-        'tax_input'   =>  array( 'publication' => explode(",", $_POST['bookmark_publications']), 'post_tag' => explode(",", $_POST['keywords']) ),
-        'post_status' =>  $post_status,
-        'post_type'   =>  'post',
-        'post_category' => array($_POST['bookmark_category'])
-      );
-      $post_id = wp_insert_post($new_post, true);
-      // wp_set_object_terms();
-      // add in the bookmark image
-      $imgfile = $_POST['bookmark_image'];
-      require_once(ABSPATH . 'wp-admin' . '/includes/image.php');
-      require_once(ABSPATH . 'wp-admin' . '/includes/file.php');
-      require_once(ABSPATH . 'wp-admin' . '/includes/media.php');
-      $file = media_sideload_image( $imgfile, $post_id, $_POST['title'] );
-      $attachments = get_posts(array('numberposts' => '1', 'post_parent' => $post_id, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC'));
-      if(sizeof($attachments) > 0){
-        // set image as the post thumbnail
-        set_post_thumbnail($post_id, $attachments[0]->ID);
-      } 
-
-      // add the bookmark's meta data
-      add_post_meta($post_id, 'post_display', 'inline',  true);
-      add_post_meta($post_id, 'primary_category',  $_POST['bookmark_category'],  true);
-      add_post_meta($post_id, 'source_url',  $_POST['source_url'],  true);
-      add_post_meta($post_id, 'link_out',  $_POST['link_out'],  true);
-      
-      // add_post_meta($post_id, 'bookmark_desc', $_POST['bookmark_desc'], true);
-
-      // give positive user feedback
-      if ($post_status == 'draft') {
-        $status = 'Draft Saved!';
-      } else {
-        $status = 'Published!';
-      }
-      echo <<< EOF
-      <div class="msg">
-        <p>$status</p>
-        <button onClick="window.close();" class="btn">Close</button>  
-      </div>
-      <script>window.onload=function(){ document.getElementById('focusbutton').focus(); }</script>
-EOF;
-
-    } else {
-      
-      echo <<< EOF
-      <div class="msg">
-        <p>Please enter at least a title and URL for the bookmark.</p>
-        <button onClick="window.history.go(-1);" id="focusbutton">Back</button>
-      </div>
-      <script>window.onload=function(){ document.getElementById('focusbutton').focus(); }</script>
-EOF;
-    }
-  }
-}
-
-// pass wpurl from php to js
-function worthreading_jsvars() {
-  ?><script type='text/javascript'>
-  // <![CDATA[
-  var ajaxUrl = "<?php echo esc_js( get_bloginfo( 'wpurl' ) . '/wp-admin/admin-ajax.php' ); ?>";
-  //]]>
-  </script><?php
-}
-
-// Actions
-add_action('get_header', 'worthreadingHeader');
-add_action('wp_head', 'worthreading_jsvars');
-

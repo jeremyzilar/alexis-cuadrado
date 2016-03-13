@@ -34,30 +34,8 @@ function stream_loop(){
 function loop(){
 	if (have_posts()) {
 		while (have_posts()) {
-			the_post(); ?>
-			<?php
-			
-				if ( is_singular( 'bookmark' ) ) {
-					get_template_part('cards/card', 'bookmark' );
-				} else if (is_singular( 'collection' )) {
-					get_template_part('content', 'collection' );
-        } else if (is_page() && is_page_template('t_jobs.php')) {
-          get_template_part('content', 'jobs' );
-        } else if (is_page() && is_page_template('t_listmaker.php')) {
-          get_template_part('content', 'listmaker' );
-				} else if (is_page()) {
-					get_template_part('content', 'page' );
-				} else {
-          if (get_post_meta(get_the_ID(), 'link_out', true ) == 'on') {
-            get_template_part('content', 'bookmark' );
-          } else {
-            get_template_part('content', '' );
-          }
-					
-				}
-
-			?>
-		<?php
+			the_post();
+      get_template_part('content', '' );
 		}
 	}
 }

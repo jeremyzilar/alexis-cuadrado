@@ -11,6 +11,7 @@ include_once 'functions/article-composer.php';
 include_once 'functions/card-composer.php';
 include_once 'functions/entry.php';
 include_once 'functions/shows.php';
+include_once 'functions/albums.php';
 
 
 // Variables
@@ -89,8 +90,6 @@ function special_nav_class($classes, $item){
 	}
 	return $classes;
 }
-
-
 
 // if (!is_admin()) {
 // 	// If Logged In, Add DRAFTS to Query

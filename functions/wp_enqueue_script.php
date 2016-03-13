@@ -46,14 +46,15 @@ add_action('wp_enqueue_scripts', 'ac_scripts', 100);
 function load_admin_style() {
   $v = date('d');
   wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/assets/css/admin.css', false, $v, 'all' );
+  wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
 }
 add_action( 'admin_enqueue_scripts', 'load_admin_style' );
-
 
 // Admin JS
 function ac_adminjs() {
   $v = date('d');
   wp_enqueue_script( 'admin-media', get_template_directory_uri() . '/assets/js/admin/media-min.js', array( 'media-editor' ), $v, 'all');
+  wp_enqueue_script('jquery-ui-datepicker');
 }
 add_action( 'load-post.php', 'ac_adminjs' );
 add_action( 'load-post-new.php', 'ac_adminjs' );

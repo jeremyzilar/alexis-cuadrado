@@ -9,6 +9,7 @@
     margin-left: -2px;
     font-weight: 300;
     font-size: 36px;
+    font-family: $serif;
     line-height: 42px;
     a{
       text-decoration: none;
@@ -37,8 +38,8 @@
       padding: 4px 6px;
       border-radius: 0;
       border:none;
-      border-bottom:2px $deep-blue solid;
-      color:$deep-blue;
+      border-bottom:2px $base solid;
+      color:$base;
       font-weight: 300;
       font-size: 17px;
       line-height: 21px;
@@ -67,16 +68,16 @@
       border-bottom: none;
     }
     ::-webkit-input-placeholder {
-     color:$deep-blue;
+     color:$base;
     }
     :-moz-placeholder { /* older Firefox*/
-     color:$deep-blue;
+     color:$base;
     }
     ::-moz-placeholder { /* Firefox 19+ */ 
-     color:$deep-blue;
+     color:$base;
     } 
     :-ms-input-placeholder { 
-     color:$deep-blue;
+     color:$base;
     }
 
   }

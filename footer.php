@@ -1,4 +1,3 @@
-
   <section id="footer" class="hidden">
     <div class="container">
 
@@ -32,7 +31,9 @@
 
     </div>
   </section>
-
+  
+  </div> <!-- end #page -->
+  
   <!-- Google Analytics -->
   
 

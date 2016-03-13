@@ -2,7 +2,7 @@
 // Entry — All elements that make up entry
 
 // Kicker / Primary Category
-function sup_kicker(){
+function ac_kicker(){
   global $post;
   $cat_id = get_post_meta( get_the_ID(), 'primary_category', true );
   $kicker = get_the_category_by_ID( $cat_id );
@@ -17,7 +17,7 @@ EOF;
   }
 }
 
-function get_sup_kicker($id){
+function get_ac_kicker($id){
   $cat_id = get_post_meta( $id, 'primary_category', true );
   if (empty($cat_id)) {
     return;
@@ -27,7 +27,7 @@ function get_sup_kicker($id){
   return $kicker;
 }
 
-function get_sup_kicker_url($id){
+function get_ac_kicker_url($id){
   global $post;
   $cat_id = get_post_meta( $id, 'primary_category', true );
   if (empty($cat_id)) {
@@ -68,7 +68,7 @@ function get_meta_description(){
 }
 
 // Card Headlines
-function sup_card_headline($source_url){
+function ac_card_headline($source_url){
   $card_headline = get_post_meta( get_the_ID(), 'card_headline', true );
   if (empty($card_headline)) {
     $card_headline = get_the_title();
@@ -79,8 +79,8 @@ EOF;
 }
 
 // Update Card Headlines logic when headline changes
-add_action( 'save_post', 'update_sup_card_headline' );
-function update_sup_card_headline() {
+add_action( 'save_post', 'update_ac_card_headline' );
+function update_ac_card_headline() {
   $headline = get_the_title();
   $card_headline = get_post_meta( get_the_ID(), 'card_headline', true );
   $update_headline = $_REQUEST['post_title'];
@@ -92,8 +92,8 @@ function update_sup_card_headline() {
 
 }
 
-function sup_sharetools($id){
-  $link = sup_permalink($id);
+function ac_sharetools($id){
+  $link = ac_permalink($id);
   $fb_share = 'http://www.facebook.com/sharer.php?s=100&p[url]=' . $link;
   $twtr = esc_html(get_the_title($id));
   echo <<< EOF
@@ -105,7 +105,7 @@ EOF;
 }
 
 // Deck
-function sup_deck(){
+function ac_deck(){
   global $post;
   $deck = get_post_meta( get_the_ID(), 'deck', true );
   if (!empty($deck)) {
@@ -119,12 +119,12 @@ EOF;
 }
 
 // DATE
-function supchina_entry_date( $echo = true ) {
+function ac_entry_date( $echo = true ) {
   $date = '<p class="date"><i class="fa fa-clock-o"></i> <a href="'.get_permalink().'" title="'.the_title_attribute( 'echo=0' ).'" rel="bookmark"><time class="dt-published published entry-date rel_time" datetime="'.get_the_date('c').'"><span>'.get_the_time('F j, Y g:i a').'</span></time></a></p>';
   echo $date;
 }
 
-function sup_editlink($id){
+function ac_editlink($id){
   $edit = '';
   $status = '';
   if ( is_user_logged_in() ) {
@@ -139,8 +139,8 @@ function card_footer($id){
   echo <<< EOF
     <div class="entry-footer">
 EOF;
-  sup_editlink($id);
-  sup_sharetools($id);
+  ac_editlink($id);
+  ac_sharetools($id);
 echo <<< EOF
     </div>
 EOF;
@@ -153,7 +153,7 @@ function get_post_display(){
 }
 
 
-function sup_featured_media($size, $source) {
+function ac_featured_media($size, $source) {
   global $post;
   if ( has_post_thumbnail() ) {
     $thumb = get_the_post_thumbnail( $post->ID, $size);
@@ -168,7 +168,7 @@ function sup_featured_media($size, $source) {
   }
 }
 
-function sup_article_media($size) {
+function ac_article_media($size) {
   global $post;
   if (class_exists('MultiPostThumbnails')) {
     $thumb = MultiPostThumbnails::get_the_post_thumbnail(
@@ -189,7 +189,7 @@ function sup_article_media($size) {
   }
 }
 
-function get_sup_featured_media($size) {
+function get_ac_featured_media($size) {
   global $post;
   if ( has_post_thumbnail() ) {
     $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $size );
@@ -210,7 +210,7 @@ function validate_gravatar($email) {
   return $has_valid_avatar;
 }
 
-function sup_byline(){
+function ac_byline(){
   $author = get_the_author();
   $author_id = get_the_author_meta( 'id' );
   $author_user = get_the_author_meta( 'user_login' );
@@ -233,26 +233,26 @@ function sup_byline(){
 EOF;
 }
 
-function sup_publication($id){
+function ac_publication($id){
   $publications = '';
   $terms = get_the_term_list( $id, 'publication', '', ', ', '' );
   if (!empty($terms)) {
-    echo $publications = '<p class="source_url">via <a href="'.sup_permalink($id).'" title="Go to '.strip_tags($terms).'">' . strip_tags($terms) . '</a></p>';
+    echo $publications = '<p class="source_url">via <a href="'.ac_permalink($id).'" title="Go to '.strip_tags($terms).'">' . strip_tags($terms) . '</a></p>';
   }
 }
 
-function get_sup_publication($id){
+function get_ac_publication($id){
   $publications = '';
   $terms = get_the_term_list( $id, 'publication', '', ', ', '' );
   if (!empty($terms)) {
-    $publications = '<a href="'.sup_permalink($id).'" title="Go to '.strip_tags($terms).'">' . strip_tags($terms) . '</a>';
+    $publications = '<a href="'.ac_permalink($id).'" title="Go to '.strip_tags($terms).'">' . strip_tags($terms) . '</a>';
   } else {
-    $publications = '<a href="'.sup_permalink($id).'" title="Go to SupChina">SupChina</a>';
+    $publications = '<a href="'.ac_permalink($id).'" title="Go to SupChina">SupChina</a>';
   }
   return $publications;
 }
 
-function sup_permalink($id){
+function ac_permalink($id){
   $link_out = get_post_meta( $id, 'link_out', true );
   if (!empty($link_out)) {
     if ($link_out == 'off') {
