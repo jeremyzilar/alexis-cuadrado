@@ -1,0 +1,21 @@
+.play-btn{
+  width:300px;
+  height:300px;
+}
+.st0{
+  fill:none;
+  stroke-dasharray: 10;
+  animation: dash 5s linear;
+  stroke:#000000;
+  stroke-miterlimit:10;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+
+.four{
+  stroke:#F50000;
+}

@@ -1,13 +1,17 @@
 <?php get_header(); ?>
 
-<?php loop(); ?>
+<?php //loop(); ?>
 
 <section id="main">
   <div class="container">
     
     <div class="row">
        <div class="col-xs-12">
+        <?php include(INC . 'svg.php'); ?> 
 
+        <!-- <a href="http://soundcloud.com/matas/hobnotropic" class="sc-player">My new dub track</a> -->
+        
+        
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

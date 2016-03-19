@@ -14,6 +14,8 @@ function ac_scripts() {
     $assets     = array(
       'css'       => '/assets/css/main.css?' . $assets['assets/css/main.css']['hash'],
       'js'        => '/assets/js/main-min.js?' . $assets['assets/js/scripts.min.js']['hash'],
+      'sc_api'    => '/assets/js/soundcloud.player.api.js?' . $assets['assets/js/scripts.min.js']['hash'],
+      'sc_player' => '/assets/js/sc-player.js?' . $assets['assets/js/scripts.min.js']['hash'],
       'modernizr' => '/assets/js/vendor/modernizr.min.js',
       'jquery' => '/assets/js/jquery.min.js' // For working locally without wifi
     );
@@ -37,7 +39,9 @@ function ac_scripts() {
 
   wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, false);
   wp_enqueue_script('jquery');
-  wp_enqueue_script('sup_js', get_template_directory_uri() . $assets['js'], array(), null, true);
+  wp_enqueue_script('js', get_template_directory_uri() . $assets['js'], array(), null, true);
+  wp_enqueue_script('sc_api', get_template_directory_uri() . $assets['sc_api'], array(), null, true);
+  wp_enqueue_script('sc_player', get_template_directory_uri() . $assets['sc_player'], array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'ac_scripts', 100);
 
