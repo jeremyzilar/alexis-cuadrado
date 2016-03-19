@@ -9,7 +9,7 @@
        <div class="col-xs-12">
         <?php include(INC . 'svg.php'); ?> 
 
-        <!-- <a href="http://soundcloud.com/matas/hobnotropic" class="sc-player">My new dub track</a> -->
+        <a href="http://soundcloud.com/matas/hobnotropic" class="sc-player">My new dub track</a>
         
         
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
