@@ -19,8 +19,9 @@ function ac_album_builder_add() {
 
 function ac_album_builder( $post ) {
   $values = get_post_custom( $post->ID );
-  
+  $album_label = isset( $values['album_label'] ) ? esc_attr( $values['album_label'][0] ) : '';
   $album_cost = isset( $values['album_cost'] ) ? esc_attr( $values['album_cost'][0] ) : '';
+  $album_buy_url = isset( $values['album_buy_url'] ) ? esc_attr( $values['album_buy_url'][0] ) : '';
   
   $album_release_date = isset( $values['album_release_date'] ) ? esc_attr( $values['album_release_date'][0] ) : '';
 
@@ -29,17 +30,34 @@ function ac_album_builder( $post ) {
 
 <div id="composer_box">
   
-  <!-- album_date -->
-  <p class="composer_block">
-    <label for="album_release_date"><span class="dashicons dashicons-calendar-alt"></span> Album Release Date</label><br />
-    <input type="text" name="album_release_date" id="album_release_date" value="<?php echo $album_release_date; ?>" />
-  </p>
+  <div class="composer_block">
+    <!-- album_date -->
+    <div class="group">
+      <label for="album_release_date"><span class="dashicons dashicons-calendar-alt"></span>Release Date</label><br />
+      <input type="text" name="album_release_date" id="album_release_date" value="<?php echo $album_release_date; ?>" />
+      <small><?php echo date('Y\-m\-d'); ?></small>
+    </div>
+    
+    <!-- album_label -->
+    <div class="group">
+      <label for="album_label">Label</label><br />
+      <input type="text" name="album_label" id="album_label" value="<?php echo $album_label; ?>" />
+      <small>http://bjurecords.com/</small>
+    </div>
+  </div>
 
-  <!-- album_ticket_url -->
-  <p class="composer_block">
-    <label for="album_cost">Cost</label><br />
-    <input type="text" name="album_cost" id="album_cost" value="<?php echo $album_cost; ?>" />
-  </p>
+  <div class="composer_block">
+    <!-- album_date -->
+    <div class="group">
+      <label for="album_cost">Cost</label><br />
+      <input type="text" name="album_cost" id="album_cost" value="<?php echo $album_cost; ?>" />      
+    </div>
+    <!-- album_ticket_url -->
+    <div class="group">
+      <label for="album_buy_url">Purchase URL</label><br />
+      <input type="text" name="album_buy_url" id="album_buy_url" value="<?php echo $album_buy_url; ?>" />
+    </div>
+  </div>
 
 </div><!-- #album_builder_box -->
 <?php }
@@ -66,6 +84,12 @@ function ac_album_builder_save( $post_id ) {
 
   if( isset( $_POST['album_release_date'] ) )
     update_post_meta( $post_id, 'album_release_date', wp_kses( $_POST['album_release_date'], $allowed ) );
+
+  if( isset( $_POST['album_label'] ) )
+    update_post_meta( $post_id, 'album_label', wp_kses( $_POST['album_label'], $allowed ) );
+
+  if( isset( $_POST['album_buy_url'] ) )
+    update_post_meta( $post_id, 'album_buy_url', wp_kses( $_POST['album_buy_url'], $allowed ) );
 }
 
 
