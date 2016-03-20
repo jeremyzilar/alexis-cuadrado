@@ -37,8 +37,8 @@ pathtwo.style.transition = pathtwo.style.WebkitTransition = 'stroke-dashoffset 2
 // paththree.style.transition = paththree.style.WebkitTransition = 'stroke-dashoffset 2.5s ease-in-out';
 
 // Define our transition delay
-pathone.style.transitionDelay="0.4s";
-pathtwo.style.transitionDelay="0.6s";
+pathone.style.transitionDelay="0s";
+pathtwo.style.transitionDelay="0.2s";
 // paththree.style.transitionDelay="0.2s";
 
 
