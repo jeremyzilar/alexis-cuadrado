@@ -12,6 +12,7 @@ include_once 'functions/card-composer.php';
 include_once 'functions/entry.php';
 include_once 'functions/shows.php';
 include_once 'functions/albums.php';
+include_once 'functions/press.php';
 
 
 // Variables

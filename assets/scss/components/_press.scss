@@ -1,0 +1,31 @@
+#press{
+  margin-top: 50px;
+  h4{
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: $sans;
+  }
+  .press-clip{
+    margin: 45px 0;
+    blockquote{
+      margin: 0;
+      padding:0;
+      border:none;
+      font-size: 21px;
+      line-height: 28px;
+      font-weight: 200;
+      font-family: $sans;
+
+      cite{
+        width: 95%;
+        text-align: right;
+        display: block;
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: 600;
+        font-style: italic;
+      }
+    }
+  }
+}

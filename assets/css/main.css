@@ -6064,6 +6064,32 @@ section {
   font-size: 16px;
   line-height: 21px; }
 
+#press {
+  margin-top: 50px; }
+  #press h4 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif; }
+  #press .press-clip {
+    margin: 45px 0; }
+    #press .press-clip blockquote {
+      margin: 0;
+      padding: 0;
+      border: none;
+      font-size: 21px;
+      line-height: 28px;
+      font-weight: 200;
+      font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif; }
+      #press .press-clip blockquote cite {
+        width: 95%;
+        text-align: right;
+        display: block;
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: 600;
+        font-style: italic; }
+
 .sup-share-tools {
   margin: 0; }
   .sup-share-tools .btn-share {

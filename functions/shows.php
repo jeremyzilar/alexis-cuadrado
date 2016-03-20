@@ -20,24 +20,6 @@ function ac_show_builder( $post ) {
   wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
 ?>
 
-<?php 
-
-  function ac_categories(){
-    global $post;
-    $ac_categories = get_the_category( $post->ID );
-    return $ac_categories;
-  }
-
-  add_action( 'admin_head', 'get_show_excerpt' );
-  function get_show_excerpt() {
-    global $post;
-    return $post->post_excerpt;
-  }
-
-?>
-
-
-
 <div id="composer_box">
   
   
