@@ -1,0 +1,30 @@
+.album{
+
+  h1.title{
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 49px;
+  }
+
+  .album_release_year{
+    font-family: $sans;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .album_summary{
+    margin: 15px 0;
+    font-family: $sans;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 28px;
+  }
+
+  .album_notes{
+    margin: 15px 0;
+    font-family: $sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+  }
+}

@@ -1,4 +1,3 @@
-<?php $classes = (get_post_meta( $id, 'link_out', true ) == 'on') ? 'link-out entry' : 'entry' ; ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('entry'); ?>>
   <div class="container">  
 

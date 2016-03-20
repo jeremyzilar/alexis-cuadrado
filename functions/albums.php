@@ -22,8 +22,8 @@ function ac_album_builder( $post ) {
   $album_label = isset( $values['album_label'] ) ? esc_attr( $values['album_label'][0] ) : '';
   $album_cost = isset( $values['album_cost'] ) ? esc_attr( $values['album_cost'][0] ) : '';
   $album_buy_url = isset( $values['album_buy_url'] ) ? esc_attr( $values['album_buy_url'][0] ) : '';
-  
   $album_release_date = isset( $values['album_release_date'] ) ? esc_attr( $values['album_release_date'][0] ) : '';
+  $album_notes = isset( $values['album_notes'] ) ? esc_attr( $values['album_notes'][0] ) : '';
 
   wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
 ?>
@@ -59,6 +59,12 @@ function ac_album_builder( $post ) {
     </div>
   </div>
 
+  <!-- album_notes -->
+  <div class="composer_block">
+    <label for="album_notes">Album Notes</label><br />
+    <textarea type="text" name="album_notes" id="album_notes"><?php echo $album_notes ?></textarea>
+  </div>
+
 </div><!-- #album_builder_box -->
 <?php }
 
@@ -90,6 +96,9 @@ function ac_album_builder_save( $post_id ) {
 
   if( isset( $_POST['album_buy_url'] ) )
     update_post_meta( $post_id, 'album_buy_url', wp_kses( $_POST['album_buy_url'], $allowed ) );
+
+  if( isset( $_POST['album_notes'] ) )
+    update_post_meta( $post_id, 'album_notes', wp_kses( $_POST['album_notes'], $allowed ) );
 }
 
 
@@ -120,7 +129,7 @@ function register_albums() {
     'menu_position'      => 20,
     'query_var'          => true,
     'rewrite'            => true,
-    'capability_type'    => 'post',
+    'capability_type'    => 'page',
     'supports'           => array('title','editor','thumbnail','excerpt','custom-fields'),
     'taxonomies'         => array(),
     'slug'               => 'album',

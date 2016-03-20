@@ -35,7 +35,13 @@ function loop(){
 	if (have_posts()) {
 		while (have_posts()) {
 			the_post();
-      get_template_part('content', '' );
+      $post_type = get_post_type( $post );
+      if ($post_type == 'album') {
+        get_template_part('content', $post_type );
+      } else {
+        get_template_part('content', '' );
+      }
+      
 		}
 	}
 }
