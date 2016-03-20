@@ -40,47 +40,58 @@ function ac_show_builder( $post ) {
 
 <div id="composer_box">
   
-  <!-- show_date -->
-  <p class="composer_block">
-    <label for="show_date">Show Date</label><br />
-    <input type="text" name="show_date" id="show_date" value="<?php echo $show_date; ?>" />
-  </p>
+  
+  <div class="composer_block">
+    <!-- show_date -->
+    <div class="group">
+      <label for="show_date">Show Date</label><br />
+      <input type="text" name="show_date" id="show_date" value="<?php echo $show_date; ?>" />
+      <small><?php echo date('Y\-m\-d'); ?></small>
+    </div>
 
-  <!-- show_time -->
-  <p class="composer_block">
-    <label for="show_time">Time</label><br />
-    <input type="text" name="show_time" id="show_time" value="<?php echo $show_time; ?>" />
-  </p>
+    <!-- show_time -->
+    <div class="group">
+      <label for="show_time">Time</label><br />
+      <input type="text" name="show_time" id="show_time" value="<?php echo $show_time; ?>" />
+      <small>9PM</small>
+    </div>
+    
+  </div>
 
   <!-- show_venue -->
-  <p class="composer_block">
+  <div class="composer_block">
     <label for="show_venue">Venue</label><br />
     <input type="text" name="show_venue" id="show_venue" value="<?php echo $show_venue; ?>" />
-  </p>
+    <small>The Lizard Lounge</small>
+  </div>
 
   <!-- show_venue_address -->
-  <p class="composer_block">
+  <div class="composer_block">
     <label for="show_venue_address">Venue Address</label><br />
     <textarea type="text" name="show_venue_address" id="show_venue_address"><?php echo $show_venue_address ?></textarea>
-  </p>
+  </div>
 
   <!-- show_venue_url -->
-  <p class="composer_block">
+  <div class="composer_block">
     <label for="show_venue_url">Venue URL</label><br />
     <input type="text" name="show_venue_url" id="show_venue_url" value="<?php echo $show_venue_url; ?>" />
-  </p>
+    <small>http://lizardlounge.com</small>
+  </div>
 
-  <!-- show_cost -->
-  <p class="composer_block">
-    <label for="show_cost">Cost</label><br />
-    <input type="text" name="show_cost" id="show_cost" value="<?php echo $show_cost; ?>" />
-  </p>
-
-  <!-- show_ticket_url -->
-  <p class="composer_block">
-    <label for="show_ticket_url">Cost</label><br />
-    <input type="text" name="show_ticket_url" id="show_ticket_url" value="<?php echo $show_ticket_url; ?>" />
-  </p>
+  <div class="composer_block">
+    <!-- show_cost -->
+    <div class="group">
+      <label for="show_cost">Cost</label><br />
+      <input type="text" name="show_cost" id="show_cost" value="<?php echo $show_cost; ?>" />
+      <small>$12</small>
+    </div>
+    <!-- show_ticket_url -->
+    <div class="group">
+      <label for="show_ticket_url">Ticket URL</label><br />
+      <input type="text" name="show_ticket_url" id="show_ticket_url" value="<?php echo $show_ticket_url; ?>" />
+      <small>http://tickets.com/12345</small>
+    </div>
+  </div>
 
 </div><!-- #show_builder_box -->
 <?php }
