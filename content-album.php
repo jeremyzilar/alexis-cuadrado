@@ -22,6 +22,7 @@
         </div><!-- .entry-content -->
       </div>
       <div class="col-xs-12 col-sm-6">
+        <?php //echo get_dominant_color(get_the_ID()); ?>
         <?php ac_featured_media('w500', get_the_ID()); ?>
       </div>
     </div>

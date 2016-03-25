@@ -152,7 +152,6 @@ function get_post_display(){
   return $post_display;
 }
 
-
 function ac_featured_media($size, $source) {
   global $post;
   if ( has_post_thumbnail() ) {

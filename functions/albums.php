@@ -5,19 +5,8 @@ add_action( 'add_meta_boxes', 'ac_album_builder_add' );
 function ac_album_builder_add() {
   add_meta_box( 'ac_album_builder', 'Album Details', 'ac_album_builder', 'album', 'normal', 'core' );
 }
-// Albums
-// - Album Name
-// - Album Cover Image
-// - Album Summary
-// - Album Long Description
-// - Liner Notes (Who plays what on the album)
-// - Release Date
-// - Record Label
-// - iTunes URL
-// - Album Buy URL
-// - Album Price
 
-function ac_album_builder( $post ) {
+function ac_album_builder( $posta ) {
   $values = get_post_custom( $post->ID );
   $album_label = isset( $values['album_label'] ) ? esc_attr( $values['album_label'][0] ) : '';
   $album_cost = isset( $values['album_cost'] ) ? esc_attr( $values['album_cost'][0] ) : '';
@@ -26,6 +15,9 @@ function ac_album_builder( $post ) {
   $album_notes = isset( $values['album_notes'] ) ? esc_attr( $values['album_notes'][0] ) : '';
 
   wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+
+
+  $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
 
 <div id="composer_box">
@@ -63,6 +55,19 @@ function ac_album_builder( $post ) {
   <div class="composer_block">
     <label for="album_notes">Album Notes</label><br />
     <textarea type="text" name="album_notes" id="album_notes"><?php echo $album_notes ?></textarea>
+  </div>
+
+  <!-- color_palette -->
+  <div class="composer_block">
+    <label for="album_color">Album Colors</label><br />
+    <input type="text" name="album_color" id="album_color" value="<?php echo $album_color; ?>" />
+    <div class="color_palette"></div>
+    <div class="color_preview">
+      <?php echo get_the_post_thumbnail( $post->ID, 'w300' ); ?>
+      <div>
+        <h3>Alexis Cuadrado</h3>
+      </div>
+    </div>
   </div>
 
 </div><!-- #album_builder_box -->
@@ -134,7 +139,7 @@ function register_albums() {
     'taxonomies'         => array(),
     'slug'               => 'album',
     'hierarchical'       => false,
-    'menu_icon'          => 'dashicons-album',
+    'menu_icon'          => 'dashicons-album'
   ));
 
 }

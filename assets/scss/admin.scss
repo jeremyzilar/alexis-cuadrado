@@ -52,3 +52,34 @@
   }
 }
 
+.color_palette{
+  padding: 10px 0;
+  .color_block{
+    height:50px;
+    width:50px;
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+.color_preview{
+  margin: 10px 0;
+  padding: 50px;
+  background: #efefef;
+  img{
+    display: inline-block;
+    vertical-align:top;
+  }
+  div{
+    display: inline-block;
+    vertical-align:top;
+    h3{
+      margin:0;
+      padding: 50px;
+      font-family: 'Times New Roman', 'Arial', serif;
+      font-size: 30px;
+      font-weight: normal;
+      color:#041D2E;
+      mix-blend-mode:multiply;
+    }
+  }
+}

@@ -34,3 +34,30 @@
     display: inline-block; }
   .composer_block .group:last-child {
     float: right; }
+
+.color_palette {
+  padding: 10px 0; }
+  .color_palette .color_block {
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    cursor: pointer; }
+
+.color_preview {
+  margin: 10px 0;
+  padding: 50px;
+  background: #efefef; }
+  .color_preview img {
+    display: inline-block;
+    vertical-align: top; }
+  .color_preview div {
+    display: inline-block;
+    vertical-align: top; }
+    .color_preview div h3 {
+      margin: 0;
+      padding: 50px;
+      font-family: 'Times New Roman', 'Arial', serif;
+      font-size: 30px;
+      font-weight: normal;
+      color: #041D2E;
+      mix-blend-mode: multiply; }
