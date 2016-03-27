@@ -13,6 +13,8 @@ function ac_album_builder( $posta ) {
   $album_buy_url = isset( $values['album_buy_url'] ) ? esc_attr( $values['album_buy_url'][0] ) : '';
   $album_release_date = isset( $values['album_release_date'] ) ? esc_attr( $values['album_release_date'][0] ) : '';
   $album_notes = isset( $values['album_notes'] ) ? esc_attr( $values['album_notes'][0] ) : '';
+  $primary_color = isset( $values['primary_color'] ) ? esc_attr( $values['primary_color'][0] ) : '';
+  $album_colors = isset( $values['album_colors'] ) ? esc_attr( $values['album_colors'][0] ) : '';
 
   wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
 
@@ -59,11 +61,22 @@ function ac_album_builder( $posta ) {
 
   <!-- color_palette -->
   <div class="composer_block">
-    <label for="album_color">Album Colors</label><br />
-    <input type="text" name="album_color" id="album_color" value="<?php echo $album_color; ?>" />
+    <label for="album_colors">Album Colors</label><br />
+    <a class="get_colors" href="#">Get Album Colors</a>
+    <input type="text" name="primary_color" id="primary_color" value="<?php echo $primary_color; ?>" />
+    <input type="hidden" name="album_colors" id="album_colors" value="<?php echo $album_colors; ?>" />
     <div class="color_palette"></div>
     <div class="color_preview">
-      <?php echo get_the_post_thumbnail( $post->ID, 'w300' ); ?>
+      <?php 
+        if ( function_exists('has_post_thumbnail') && has_post_thumbnail($post->ID) ) {
+          $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'w300' );
+          if (!$thumbnail[0]) {
+            return false;
+          } else {
+            echo '<img src="'.$thumbnail[0].'">';
+          }
+        }
+      ?>
       <div>
         <h3>Alexis Cuadrado</h3>
       </div>
@@ -104,6 +117,14 @@ function ac_album_builder_save( $post_id ) {
 
   if( isset( $_POST['album_notes'] ) )
     update_post_meta( $post_id, 'album_notes', wp_kses( $_POST['album_notes'], $allowed ) );
+
+  if( isset( $_POST['primary_color'] ) )
+    update_post_meta( $post_id, 'primary_color', wp_kses( $_POST['primary_color'], $allowed ) );
+
+  if( isset( $_POST['album_colors'] ) )
+    update_post_meta( $post_id, 'album_colors', wp_kses( $_POST['album_colors'], $allowed ) );
+
+  
 }
 
 

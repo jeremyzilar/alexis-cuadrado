@@ -273,8 +273,6 @@ function ac_permalink($id){
   return $permalink;
 }
 
-
-
 function quote_code( $atts ) {
   $a = shortcode_atts( array(
     'q' => '',
@@ -290,3 +288,40 @@ function quote_code( $atts ) {
   return $quote;
 }
 add_shortcode( 'quote', 'quote_code' );
+
+
+function page_color(){
+  $colors = json_decode(get_post_meta( get_the_ID(), 'album_colors', true ));
+  $n = count($colors);
+  $i = 1;
+  foreach ($colors as $key => $value) {
+    if ($i == 1) {
+      $color_1 = implode(', ', $value);
+    }
+    if ($i == 2) {
+      $color_2 = implode(', ', $value);
+    }
+    if ($i == 2) {
+      $secondary_color = implode(', ', $value);
+    }
+    if ($i == 11) {
+      $primary_color = implode(', ', $value);
+    }
+    $i++;
+  }
+  $secondary_color = 'rgba('.$secondary_color.',.5)';
+  $primary_color = 'rgba('.$primary_color.',.5)';
+
+echo <<< EOF
+#page{
+background: $primary_color;
+background: -moz-linear-gradient(top, $primary_color 0%, $secondary_color 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, $primary_color), color-stop(100%, $secondary_color));
+background: -webkit-linear-gradient(top, $primary_color 0%, $secondary_color 100%);
+background: -o-linear-gradient(top, $primary_color 0%, $secondary_color 100%);
+background: -ms-linear-gradient(top, $primary_color 0%, $secondary_color 100%);
+background: linear-gradient(to bottom, $primary_color 0%, $secondary_color 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#2757e6', GradientType=0 );
+}
+EOF;
+}

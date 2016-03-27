@@ -38,16 +38,11 @@
   <body <?php body_class(); ?>>
     
     <?php //include(INC . 'artbox.php'); ?>
-    <div id="page">
 
-    <section id="head">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <h1><a href="">Alexis Cuadrado</a></h1>
-          </div>
-        </div>
-        <?php include(INC . 'stream-nav.php'); ?> 
-       
-      </div>
-    </section>
+    <style type="text/css" media="screen">
+      <?php page_color(); ?>
+    </style>
+    <div id="page">
+      <div id="page-overlay">
+      </div> <!-- end #page-overlay -->
+      <?php include(INC . 'head.php'); ?> 
