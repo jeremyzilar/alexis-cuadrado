@@ -17,10 +17,8 @@
 
     <link rel="canonical" href="">
 
-    <!-- Font: Alegreya — Google Fonts — https://www.google.com/fonts/specimen/Alegreya -->
-    <link href='https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700italic,700,900,900italic' rel='stylesheet' type='text/css'>
     <!-- Fonts: Lato / http://www.latofonts.com/ -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Open Graph Tags -->
     <?php include INC . 'opengraph.php'; ?>
