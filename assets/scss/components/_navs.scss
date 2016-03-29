@@ -1,11 +1,10 @@
 /*NAVIGATION*/
 
-
 #site-nav{
   margin: 42px 0;
   font-weight: 300;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 30px;
+  line-height: 36px;
   height:35px;
   @media #{$break-sm} {
   }
@@ -22,8 +21,12 @@
       background: none;
     }
   }
-  
 }
+.home #site-nav{
+  font-size: 36px;
+  line-height: 40px;
+}
+
 
 #stream-nav .nav-wrap {
   padding-top: 25px;

@@ -6,7 +6,8 @@
   <div class="container">
     
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-6">
+        <?php // include(INC . 'recent-work.php'); ?>
       </div>
     </div>
 
