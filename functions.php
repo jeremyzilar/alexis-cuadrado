@@ -13,6 +13,7 @@ include_once 'functions/entry.php';
 include_once 'functions/shows.php';
 include_once 'functions/albums.php';
 include_once 'functions/press.php';
+include_once 'functions/work.php';
 
 
 // Variables
@@ -76,6 +77,7 @@ if (class_exists('MultiPostThumbnails')) {
 // Register a Menu
 function ac_register_menu() {
   register_nav_menu('site-nav',__( 'Site Nav' ));
+  register_nav_menu('stream-nav',__( 'Stream Nav' ));
   register_nav_menu('footer-nav',__( 'Footer Nav' ));
 }
 add_action( 'init', 'ac_register_menu' );

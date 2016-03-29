@@ -5857,20 +5857,20 @@ h4 {
   margin-top: 35px;
   font-weight: 800;
   font-size: 24px;
-  font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif; }
+  font-family: "Lato", Helvetica, Arial, sans-serif; }
 
 h5 {
   margin-top: 25px;
   font-weight: 700;
   font-size: 18px;
-  font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif; }
+  font-family: "Lato", Helvetica, Arial, sans-serif; }
 
 h6 {
   margin-top: 25px;
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
-  font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif; }
+  font-family: "Lato", Helvetica, Arial, sans-serif; }
 
 section {
   padding: 70px 0; }
@@ -5922,36 +5922,39 @@ section {
       border-bottom: 2px solid #041D2E;
       background: none; }
 
-#stream-nav {
-  margin-bottom: 20px; }
-  #stream-nav ul {
-    padding: 0 15px;
-    font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 600;
+#stream-nav .nav-wrap {
+  padding-top: 25px;
+  padding-bottom: 5px;
+  border-top: 1px #041D2E solid;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 300; }
+  @media screen and (min-width: 768px) {
+    #stream-nav .nav-wrap {
+      font-size: 18px;
+      line-height: 21px; } }
+  #stream-nav .nav-wrap ul {
+    padding: 0;
     float: none; }
-    @media screen and (min-width: 768px) {
-      #stream-nav ul {
-        padding: 0;
-        font-size: 18px;
-        line-height: 21px; } }
-  #stream-nav li {
-    margin-right: 8px;
-    margin-bottom: 10px;
+  #stream-nav .nav-wrap li {
+    margin-right: 15px;
     list-style-type: none;
     display: inline-block; }
     @media screen and (min-width: 768px) {
-      #stream-nav li {
-        margin-right: 10px;
-        margin-bottom: 12px; } }
-  #stream-nav a {
-    padding: 3px 13px;
-    border-radius: 15px;
-    color: white; }
+      #stream-nav .nav-wrap li {
+        margin-right: 40px; } }
+  #stream-nav .nav-wrap a {
+    padding: 3px 0; }
     @media screen and (min-width: 768px) {
-      #stream-nav a {
-        padding: 5px 15px; } }
+      #stream-nav .nav-wrap a {
+        padding: 5px 0; } }
+  #stream-nav .nav-wrap a:hover {
+    padding: 5px 0 4px 0;
+    background: none;
+    border-bottom: 1px #041D2E solid; }
+  #stream-nav .nav-wrap a:first-child {
+    padding-left: 0; }
 
 #stream-nav-bar {
   padding-bottom: 0;
@@ -5987,7 +5990,7 @@ section {
     #head h1 a {
       text-decoration: none; }
   #head #mc_embed_signup {
-    font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif; }
+    font-family: "Lato", Helvetica, Arial, sans-serif; }
     #head #mc_embed_signup #mc-field-group {
       display: block; }
     #head #mc_embed_signup .form-group {
@@ -6054,21 +6057,66 @@ section {
   font-weight: 300;
   line-height: 49px; }
 .album .album_release_year {
-  font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 16px; }
 .album .album_summary {
   margin: 15px 0;
-  font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 21px;
   line-height: 28px; }
 .album .album_notes {
   margin: 15px 0;
-  font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 21px; }
+
+#album_list {
+  padding: 30px 0; }
+  #album_list .album_feature h4 {
+    margin: 0;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase; }
+  #album_list .album_feature h3 {
+    font-weight: normal;
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 22px; }
+  #album_list .album_feature .album_summary {
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px; }
+  #album_list .album_feature .more {
+    margin: 15px 0;
+    font-style: italic;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px; }
+  #album_list .album_covers {
+    width: 900px;
+    left: -300px;
+    position: relative; }
+    #album_list .album_covers .cover {
+      display: inline-block;
+      position: relative; }
+    #album_list .album_covers .cover:nth-child(1) {
+      right: -300px;
+      z-index: 10; }
+    #album_list .album_covers .cover:nth-child(2) {
+      right: -200px;
+      z-index: 9; }
+    #album_list .album_covers .cover:nth-child(3) {
+      right: -100px;
+      z-index: 8; }
+    #album_list .album_covers .cover:nth-child(4) {
+      z-index: 7; }
 
 #press {
   margin-top: 50px; }
@@ -6076,7 +6124,7 @@ section {
     margin: 0;
     font-size: 24px;
     font-weight: 600;
-    font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif; }
+    font-family: "Lato", Helvetica, Arial, sans-serif; }
   #press .press-clip {
     margin: 45px 0; }
     #press .press-clip blockquote {
@@ -6086,7 +6134,7 @@ section {
       font-size: 21px;
       line-height: 28px;
       font-weight: 200;
-      font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif; }
+      font-family: "Lato", Helvetica, Arial, sans-serif; }
       #press .press-clip blockquote cite {
         width: 95%;
         text-align: right;
@@ -6095,6 +6143,18 @@ section {
         line-height: 21px;
         font-weight: 600;
         font-style: italic; }
+
+article.work {
+  padding: 40px 0; }
+  article.work h3.head {
+    font-size: 36px;
+    line-height: 40px; }
+  article.work .summary {
+    margin-top: 20px;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 28px; }
 
 .sup-share-tools {
   margin: 0; }

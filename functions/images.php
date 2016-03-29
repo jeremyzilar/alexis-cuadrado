@@ -1,11 +1,12 @@
 <?php
 // These are the additional image sizes that will be cut when adding an image to WP
-add_image_size('w50', 50, 50, true );        // 75 pixels wide x 75 pixels tall
-add_image_size('w75', 75, 75, true );        // 75 pixels wide x 75 pixels tall
-add_image_size('w100', 100, 100, true );        // 75 pixels wide x 75 pixels tall
-add_image_size('w225', 225, 225, true );    //200 pixels wide (and unlimited height)
-add_image_size('w300', 300, 200, false );    //200 pixels wide (and unlimited height)
-add_image_size('w500', 500, 9999, false );    //200 pixels wide (and unlimited height)
+add_image_size('w50', 50, 50, true );
+add_image_size('w75', 75, 75, true );
+add_image_size('w100', 100, 100, true );
+add_image_size('sq225', 225, 225, true );
+add_image_size('w300', 300, 300, true );
+add_image_size('w500', 500, 350, true );
+add_image_size('sq500', 500, 500, true );
 add_image_size('featured', 920, 9999, true);
 
 // These are the sizes that show up in the Admin

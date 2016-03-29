@@ -2,7 +2,7 @@
   <div class="container">  
 
     <div class="row">
-      <div class="col-xs-12 col-sm-8">
+      <div class="col-xs-12 col-sm-6">
         
         <div class="entry-content">
 
@@ -23,8 +23,8 @@
 
         </div><!-- .entry-content -->
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <?php ac_featured_media('w300', get_the_ID()); ?>
+      <div class="col-xs-12 col-sm-6 ">
+        <?php ac_featured_media('w500', get_the_ID()); ?>
       </div>
     </div>
     

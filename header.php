@@ -17,8 +17,8 @@
 
     <link rel="canonical" href="">
 
-    <!-- Fonts: Lato / http://www.latofonts.com/ -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <!-- Fonts: Lato / https://www.google.com/fonts#UsePlace:use/Collection:Lato -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
 
     <!-- Open Graph Tags -->
     <?php include INC . 'opengraph.php'; ?>

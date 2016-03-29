@@ -1,32 +1,11 @@
 <?php
 
 function stream_loop(){
-	if ( is_user_logged_in()) {
-		global $wp_query;
-		$args = array_merge( $wp_query->query, array( 'post_status' => array('publish', 'draft') ) );
-		query_posts( $args );
-	}
 
 	if (have_posts()) {
 		while (have_posts()) {
-			the_post(); ?>
-      <?php
-        // Date Bar
-        $the_date = the_date('', '', '', FALSE);
-        if (!empty($the_date)) {
-          echo '<div class="date-bar">' . $the_date . '</div>';
-        }
-
-        // Cards
-				$card_type = get_post_meta( get_the_ID(), 'card_type', true );
-				if (!empty($card_type)) {
-					get_template_part('cards/'. $card_type);
-				} else {
-					get_template_part('cards/refer');
-				}
-
-			?>
-		<?php
+			the_post();
+        get_template_part('content', '' );
 		}
 	}
 }

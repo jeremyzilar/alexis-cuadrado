@@ -8,7 +8,7 @@
         </h1>
       </div>
     </div>
-    <?php include(INC . 'stream-nav.php'); ?> 
+    <?php include(INC . 'site-nav.php'); ?> 
    
   </div>
 </section>
