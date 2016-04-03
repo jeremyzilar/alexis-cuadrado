@@ -5830,8 +5830,7 @@ a:hover {
   color: #041D2E; }
 
 hr {
-  margin: 48px auto;
-  width: 60%;
+  margin: 40px;
   border-bottom: 1px #041D2E solid; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -6066,7 +6065,8 @@ header {
   #press h4 {
     margin: 0;
     font-weight: 500;
-    padding: 25px 0;
+    padding: 25px 0; }
+  #press .wrap {
     border-top: 1px #041D2E solid; }
   #press .press-clip {
     margin: 45px 0; }
@@ -6113,14 +6113,18 @@ header {
   line-height: 21px; }
 .work .buy-buttons {
   margin: 30px 0; }
-.work .project-text {
-  margin: 50px 0;
-  border-top: 1px #041D2E solid;
+.work .media {
+  float: right; }
+.work .project-body {
+  margin-top: 50px;
+  margin-bottom: 40px;
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 21px;
   line-height: 28px; }
-  .work .project-text h4 {
+  .work .project-body .wrap {
+    border-top: 1px #041D2E solid; }
+  .work .project-body h4 {
     font-weight: 500;
     margin-bottom: 25px; }
 .work .project-text * {

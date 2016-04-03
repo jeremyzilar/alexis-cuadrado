@@ -34,14 +34,21 @@
   .buy-buttons{
     margin: 30px 0;
   }
+  .media{
+    float: right;
+  }
 
-  .project-text{
-    margin: 50px 0;
-    border-top: 1px $base solid;
+  .project-body{
+    margin-top: 50px;
+    margin-bottom: 40px;
     font-family: $sans;
     font-weight: 300;
     font-size: 21px;
     line-height: 28px;
+    .wrap{
+      border-top: 1px $base solid;
+    }
+
 
     h4{
       font-weight: 500;
