@@ -1,9 +1,11 @@
 (function($){
   jQuery(document).ready(function() {
-    $('#album_release_date').datepicker({
+    // For Projects / Work
+    $('#project_release_date').datepicker({
       dateFormat : 'yy-mm-dd'
     });
 
+    // For Shows
     $('#show_date').datepicker({
       dateFormat : 'yy-mm-dd'
     });
@@ -30,7 +32,6 @@
         }
         $sorted_colors[total] = value;
       });
-      // console.log($sorted_colors);
       return $sorted_colors;
     }
 
@@ -38,7 +39,7 @@
       // $colors = get_colors(thumb);
       $colors = sort_colors(thumb);
 
-      $('#album_colors').attr('value', JSON.stringify($colors));
+      $('#project_colors').attr('value', JSON.stringify($colors));
       $.each( $colors, function( i, value ) {
         $('.color_palette').append('<div class="color_block" data-rgb="'+ value +'" style="background:rgba('+ value +',.5);">').fadeIn('slow');
         $('.color_preview').attr('style', 'background:rgba('+ value +',.5);').fadeIn('slow');

@@ -15,7 +15,7 @@ function loop(){
 		while (have_posts()) {
 			the_post();
       $post_type = get_post_type( $post );
-      if ($post_type == 'album') {
+      if ($post_type == 'work') {
         get_template_part('content', $post_type );
       } else {
         get_template_part('content', '' );

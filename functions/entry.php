@@ -291,7 +291,7 @@ add_shortcode( 'quote', 'quote_code' );
 
 
 function page_color(){
-  $colors = json_decode(get_post_meta( get_the_ID(), 'album_colors', true ));
+  $colors = json_decode(get_post_meta( get_the_ID(), 'project_colors', true ));
   $n = count($colors);
   $i = 1;
   foreach ($colors as $key => $value) {

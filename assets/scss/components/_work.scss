@@ -1,3 +1,34 @@
+.work{
+  h1.title{
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 49px;
+  }
+
+  .project_release_year{
+    font-family: $sans;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .project_summary{
+    margin: 15px 0;
+    font-family: $sans;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 28px;
+  }
+
+  .project_notes{
+    margin: 15px 0;
+    font-family: $sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+
 
 article.work{
   padding: 40px 0;
