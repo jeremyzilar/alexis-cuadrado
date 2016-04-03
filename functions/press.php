@@ -11,7 +11,7 @@ function ac_press_builder_add() {
 
 function ac_press_builder( $post ) {
   $values = get_post_custom( $post->ID );
-  $press_album = isset( $values['press_album'] ) ? esc_attr( $values['press_album'][0] ) : '';
+  $press_work = isset( $values['press_work'] ) ? esc_attr( $values['press_work'][0] ) : '';
   $press_blurb = isset( $values['press_blurb'] ) ? esc_attr( $values['press_blurb'][0] ) : '';
   $press_source = isset( $values['press_source'] ) ? esc_attr( $values['press_source'][0] ) : '';
   $press_source_url = isset( $values['press_source_url'] ) ? esc_attr( $values['press_source_url'][0] ) : '';
@@ -20,31 +20,30 @@ function ac_press_builder( $post ) {
 
   $args = array (
     'posts_per_page' => -1,
-    'post_type'     => array('album'),
+    'post_type'     => array('work'),
     'post_status'   => 'publish, draft'
   );
   $query = new WP_Query( $args );
-  $albums = $query->get_posts();
+  $works = $query->get_posts();
 ?>
 
 
 <div id="composer_box">
-  <!-- press_album -->
+  <!-- press_work -->
   <div class="composer_block">
-    <label for="press_album">Album</label><br />
-    <select name="press_album" id="press_album" class="">
+    <label for="press_work">Project / Work</label><br />
+    <select name="press_work" id="press_work" class="">
       <?php 
         // Blank option
-        echo '<option'. selected( $press_album, '' ) . ' value=""></option>';
-        foreach ($albums as $album) {
+        echo '<option'. selected( $press_work, '' ) . ' value=""></option>';
+        foreach ($works as $work) {
           // print_r($album);
-          $album_name = $album->post_title;
-          $album_ID = $album->ID;
+          $work_name = $work->post_title;
+          $work_ID = $work->ID;
           
           // Passes the category ID as the value so it can be used elsewhere
-          echo '<option'. selected( $press_album, $album_ID ) . ' value="' . $album_ID . '">' . $album_name . '</option>';
+          echo '<option'. selected( $press_work, $work_ID ) . ' value="' . $work_ID . '">' . $work_name . '</option>';
         }
-
       ?>
     </select>
   </div>
@@ -89,8 +88,8 @@ function ac_press_builder_save( $post_id ) {
     )
   );
 
-  if( isset( $_POST['press_album'] ) )
-    update_post_meta( $post_id, 'press_album', wp_kses( $_POST['press_album'], $allowed ) );
+  if( isset( $_POST['press_work'] ) )
+    update_post_meta( $post_id, 'press_work', wp_kses( $_POST['press_work'], $allowed ) );
 
   if( isset( $_POST['press_blurb'] ) )
     update_post_meta( $post_id, 'press_blurb', wp_kses( $_POST['press_blurb'], $allowed ) );
@@ -145,7 +144,7 @@ function register_press() {
 function ST4_columns_head($defaults) {
   $defaults['press_blurb']  = 'Blurb';
   $defaults['press_source']  = 'Source';
-  $defaults['press_album']  = 'Album';
+  $defaults['press_work']  = 'Album';
   // print_r($defaults);
 
   /* ADD ANOTHER COLUMN (OPTIONAL) */
@@ -169,8 +168,8 @@ function ST4_columns_content($column_name, $post_ID) {
   if ($column_name == 'press_source') {
     echo get_post_meta( get_the_ID(), 'press_source', true );
   }
-  if ($column_name == 'press_album') {
-    $album_id = get_post_meta( get_the_ID(), 'press_album', true );
+  if ($column_name == 'press_work') {
+    $album_id = get_post_meta( get_the_ID(), 'press_work', true );
     $album = get_post( $album_id ); 
     echo $album_name = $album->post_title;
   }

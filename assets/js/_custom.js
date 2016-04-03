@@ -38,28 +38,7 @@
     });
 
 
-    // Sticky Header Bar    
-    $(function () {
-      $stickybar = $('#sticky-bar');
-      $stickybar.hide();
-      $(window).scroll(function () {
-        // set distance user needs to scroll before we fadeIn navbar
-        if ($(this).scrollTop() > 200) {
-          $stickybar.show();
-        } else {
-          $stickybar.hide();
-        }
-      });
-    });
-
-
-
-    $('.mailing-list .form-control').focus(function() {
-      $('.form-group').show('fast');
-    });
-
-
-
+  
 
 
 

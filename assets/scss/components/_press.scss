@@ -1,10 +1,11 @@
 #press{
-  margin-top: 50px;
+  margin-top: 0;
+  padding: 0;
   h4{
-    margin: 0;
-    font-size: 24px;
-    font-weight: 600;
-    font-family: $sans;
+    margin:0;
+    font-weight: 500;
+    padding: 25px 0;
+    border-top: 1px $base solid;
   }
   .press-clip{
     margin: 45px 0;
@@ -14,7 +15,7 @@
       border:none;
       font-size: 21px;
       line-height: 28px;
-      font-weight: 200;
+      font-weight: 300;
       font-family: $sans;
 
       cite{
@@ -23,7 +24,7 @@
         display: block;
         font-size: 18px;
         line-height: 21px;
-        font-weight: 600;
+        font-weight: 500;
         font-style: italic;
       }
     }

@@ -6061,12 +6061,13 @@ header {
       z-index: 7; }
 
 #press {
-  margin-top: 50px; }
+  margin-top: 0;
+  padding: 0; }
   #press h4 {
     margin: 0;
-    font-size: 24px;
-    font-weight: 600;
-    font-family: "Lato", Helvetica, Arial, sans-serif; }
+    font-weight: 500;
+    padding: 25px 0;
+    border-top: 1px #041D2E solid; }
   #press .press-clip {
     margin: 45px 0; }
     #press .press-clip blockquote {
@@ -6075,7 +6076,7 @@ header {
       border: none;
       font-size: 21px;
       line-height: 28px;
-      font-weight: 200;
+      font-weight: 300;
       font-family: "Lato", Helvetica, Arial, sans-serif; }
       #press .press-clip blockquote cite {
         width: 95%;
@@ -6083,7 +6084,7 @@ header {
         display: block;
         font-size: 18px;
         line-height: 21px;
-        font-weight: 600;
+        font-weight: 500;
         font-style: italic; }
 
 .work h1.title {
@@ -6093,19 +6094,37 @@ header {
 .work .project_release_year {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: 300;
-  font-size: 16px; }
+  font-size: 18px; }
 .work .project_summary {
   margin: 15px 0;
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 21px;
   line-height: 28px; }
+.work .project_links {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px; }
 .work .project_notes {
   margin: 15px 0;
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 21px; }
+.work .buy-buttons {
+  margin: 30px 0; }
+.work .project-text {
+  margin: 50px 0;
+  border-top: 1px #041D2E solid;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 28px; }
+  .work .project-text h4 {
+    font-weight: 500;
+    margin-bottom: 25px; }
+.work .project-text * {
+  margin-bottom: 20px; }
 
 article.work {
   padding: 40px 0; }

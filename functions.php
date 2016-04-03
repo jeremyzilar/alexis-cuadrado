@@ -34,9 +34,9 @@ define('ROOT', $root);
 $inc = $root . '/inc/';
 define('INC', $inc);
 
-// Cards Path
-$card = $root . '/cards/';
-define('CARD', $card);
+// Images Path
+$img = $theme . '/assets/img/';
+define('IMG', $img);
 
 // Templates Path
 $temp = $root . '/templates/';
