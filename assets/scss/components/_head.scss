@@ -6,10 +6,12 @@ header{
 .home header .container .row{
   height:540px;
   background: url('../img/ac-blue.png') no-repeat;
-  background-position: right 15px top;
-  border-bottom: 1px #333 solid;
+  background-position: right 30px top;
 }
 
+.wrap{
+  border-bottom: 1px $base solid;
+}
 #hed{
   margin:50px 0 0 0;
 
@@ -32,6 +34,7 @@ header{
     line-height: 36px;
     font-weight: 100;
     font-family: $sans;
+    width:470px;
   }
 }
 

@@ -5900,7 +5900,7 @@ section {
 
 /*NAVIGATION*/
 #site-nav {
-  margin: 42px 0;
+  margin: 75px 0;
   font-weight: 300;
   font-size: 30px;
   line-height: 36px;
@@ -5981,8 +5981,10 @@ header {
 .home header .container .row {
   height: 540px;
   background: url("../img/ac-blue.png") no-repeat;
-  background-position: right 15px top;
-  border-bottom: 1px #333 solid; }
+  background-position: right 30px top; }
+
+.wrap {
+  border-bottom: 1px #041D2E solid; }
 
 #hed {
   margin: 50px 0 0 0; }
@@ -6000,7 +6002,8 @@ header {
     font-size: 30px;
     line-height: 36px;
     font-weight: 100;
-    font-family: "Lato", Helvetica, Arial, sans-serif; }
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    width: 470px; }
 
 #head.head-slim {
   padding: 20px 0 20px 0; }
