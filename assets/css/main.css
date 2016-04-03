@@ -5909,7 +5909,7 @@ section {
   #site-nav li {
     display: inline-block; }
     #site-nav li a {
-      margin-right: 60px;
+      margin-right: 40px;
       padding: 0;
       color: #041D2E; }
     #site-nav li a:hover {
@@ -5917,7 +5917,7 @@ section {
       background: none; }
 
 .home #site-nav {
-  font-size: 36px;
+  font-size: 28px;
   line-height: 40px; }
 
 #stream-nav .nav-wrap {
@@ -5976,73 +5976,32 @@ section {
     text-decoration: underline; }
 
 /*Head*/
-#head {
-  margin: 0; }
-  #head h1 {
+header {
+  padding: 20px 0; }
+
+.home header .container .row {
+  height: 540px;
+  background: url("../img/ac-blue.png") no-repeat;
+  background-position: right 15px top;
+  border-bottom: 1px #333 solid; }
+
+#hed {
+  margin: 50px 0 0 0; }
+  #hed h1 {
     margin: 0;
     margin-left: -2px;
     font-weight: 300;
     font-size: 36px;
     font-family: "Times New Roman", "Arial", serif;
     line-height: 42px; }
-    #head h1 a {
+    #hed h1 a {
       text-decoration: none; }
-  #head h2 {
+  #hed h2 {
     margin: 15px 0;
     font-size: 30px;
     line-height: 36px;
     font-weight: 100;
     font-family: "Lato", Helvetica, Arial, sans-serif; }
-  #head #mc_embed_signup {
-    font-family: "Lato", Helvetica, Arial, sans-serif; }
-    #head #mc_embed_signup #mc-field-group {
-      display: block; }
-    #head #mc_embed_signup .form-group {
-      margin-bottom: 0; }
-    #head #mc_embed_signup h5 {
-      font-weight: 500;
-      margin-top: 20px; }
-      @media screen and (min-width: 768px) {
-        #head #mc_embed_signup h5 {
-          margin-top: 25px; } }
-    #head #mc_embed_signup input,
-    #head #mc_embed_signup .btn-submit {
-      padding: 4px 6px;
-      border-radius: 0;
-      border: none;
-      border-bottom: 2px #041D2E solid;
-      color: #041D2E;
-      font-weight: 300;
-      font-size: 17px;
-      line-height: 21px;
-      height: 38px;
-      background: rgba(255, 255, 255, 0.4); }
-    #head #mc_embed_signup input.email {
-      width: 85%;
-      float: left; }
-      @media screen and (min-width: 992px) {
-        #head #mc_embed_signup input.email {
-          width: 85%; } }
-    #head #mc_embed_signup input.email:focus {
-      box-shadow: none; }
-    #head #mc_embed_signup .btn-submit {
-      padding: 0;
-      float: left;
-      font-size: 28px;
-      line-height: 28px;
-      width: 50px;
-      background: none;
-      border-bottom: none; }
-    #head #mc_embed_signup ::-webkit-input-placeholder {
-      color: #041D2E; }
-    #head #mc_embed_signup :-moz-placeholder {
-      /* older Firefox*/
-      color: #041D2E; }
-    #head #mc_embed_signup ::-moz-placeholder {
-      /* Firefox 19+ */
-      color: #041D2E; }
-    #head #mc_embed_signup :-ms-input-placeholder {
-      color: #041D2E; }
 
 #head.head-slim {
   padding: 20px 0 20px 0; }

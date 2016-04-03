@@ -38,13 +38,13 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/assets\/img\/ac.png": {
+	"\/assets\/img\/ac-blue.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 686969,
-		"inputAbbreviatedPath": "\/assets\/img\/ac.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ac.png",
+		"initialSize": 238818,
+		"inputAbbreviatedPath": "\/assets\/img\/ac-blue.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ac-blue.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
