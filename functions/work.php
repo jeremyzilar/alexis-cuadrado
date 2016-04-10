@@ -157,7 +157,7 @@ function register_work() {
     'query_var'          => true,
     'rewrite'            => true,
     'capability_type'    => 'page',
-    'supports'           => array('title','editor','thumbnail','excerpt','custom-fields'),
+    'supports'           => array('title','editor','thumbnail','excerpt'),
     'taxonomies'         => array(),
     'slug'               => 'work',
     'hierarchical'       => false,

@@ -166,7 +166,7 @@ function register_shows() {
     'query_var'          => true,
     'rewrite'            => true,
     'capability_type'    => 'post',
-    'supports'           => array('title','editor','thumbnail','excerpt','custom-fields'),
+    'supports'           => array('title','editor','thumbnail','excerpt'),
     'taxonomies'         => array(),
     'slug'               => 'show',
     'hierarchical'       => false,
